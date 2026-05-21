@@ -278,7 +278,7 @@ footer{border-top:1px solid var(--line);padding:26px 48px;display:flex;align-ite
         </div>
       </div>
       <div class="reveal">
-        <form class="form" onsubmit="subForm(event)">
+        <form class="form" action="https://formspree.io/f/xpwzabcd" method="POST">
           <div class="fr"><label class="fl">Name</label><input class="fi" type="text" placeholder="Full name" required></div>
           <div class="fr"><label class="fl">Org</label><input class="fi" type="text" placeholder="Organisation" required></div>
           <div class="fr"><label class="fl">Email</label><input class="fi" type="email" placeholder="official@email.in" required></div>
@@ -286,7 +286,7 @@ footer{border-top:1px solid var(--line);padding:26px 48px;display:flex;align-ite
             <select class="fsel"><option value="">Select purpose</option><option>Defence Partnership</option><option>Investment / Funding</option><option>iDEX / ADITI Evaluation</option><option>Technical Briefing</option><option>Media Enquiry</option></select>
           </div>
           <div class="fr"><label class="fl">Message</label><textarea class="fta" placeholder="Brief description of your enquiry"></textarea></div>
-          <button type="submit" class="fsub">Submit Request</button>
+          <button type="submit" class="fsub">Submit Request</button> <input type="hidden" name="_replyto" value="contact@shoonyaspace.in"> <input type="hidden" name="_subject" value="New Briefing Request — Shoonya Space">
         </form>
         <div class="fdone" id="fdone">◆ &nbsp; Request received — we will respond within 48 hours</div>
       </div>
