@@ -115,17 +115,20 @@ section{position:relative;z-index:2}
 .cr:hover{background:rgba(240,240,240,.025)}
 .crk{font-family:var(--FM);font-size:8px;letter-spacing:2px;color:var(--d2);text-transform:uppercase}
 .crv{font-family:var(--FB);font-size:14px;font-weight:300;color:rgba(240,240,240,.45)}
+
+/* FORM */
 .form{border:1px solid var(--line)}
 .fr{display:flex;border-bottom:1px solid var(--line)}
-.fr:last-child{border-bottom:none}
-.fl{font-family:var(--FM);font-size:8px;letter-spacing:2px;color:var(--d2);text-transform:uppercase;padding:15px 14px;border-right:1px solid var(--line);min-width:90px;display:flex;align-items:center;background:rgba(240,240,240,.015)}
+.fr:last-of-type{border-bottom:none}
+.fl{font-family:var(--FM);font-size:8px;letter-spacing:2px;color:var(--d2);text-transform:uppercase;padding:15px 14px;border-right:1px solid var(--line);min-width:90px;display:flex;align-items:center;background:rgba(240,240,240,.015);flex-shrink:0}
 .fi,.fta,.fsel{flex:1;background:transparent;border:none;font-family:var(--FB);font-size:14px;font-weight:300;color:var(--w);padding:15px 14px;outline:none;letter-spacing:.3px}
 .fi::placeholder,.fta::placeholder{color:rgba(240,240,240,.12)}
 .fta{min-height:90px;resize:none}
 .fsel{color:rgba(240,240,240,.35)}
 .fsel option{background:#111}
-.fsub{width:100%;background:var(--w);border:none;font-family:var(--FM);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--bg);padding:16px;cursor:pointer;transition:background .15s}
+.fsub{width:100%;background:var(--w);border:none;font-family:var(--FM);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--bg);padding:16px;cursor:pointer;transition:background .15s;display:block;border-top:1px solid var(--line)}
 .fsub:hover{background:#d4d4d4}
+.f-success{display:none;font-family:var(--FM);font-size:9px;letter-spacing:2px;color:var(--d2);text-align:center;padding:20px;border:1px solid var(--line);margin-top:1px}
 
 /* FOOTER */
 footer{border-top:1px solid var(--line);padding:26px 52px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2}
@@ -135,6 +138,7 @@ footer{border-top:1px solid var(--line);padding:26px 52px;display:flex;align-ite
 .ftlinks a{font-family:var(--FM);font-size:8px;letter-spacing:1.5px;color:var(--d2);text-decoration:none;text-transform:uppercase;transition:color .15s}
 .ftlinks a:hover{color:var(--w)}
 
+/* RESPONSIVE */
 @media(max-width:900px){
   nav{padding:0 24px}.nav-links{display:none}
   .wrap{padding:0 24px}
@@ -151,9 +155,11 @@ footer{border-top:1px solid var(--line);padding:26px 52px;display:flex;align-ite
 </style>
 </head>
 <body>
+
 <div id="cur"></div>
 <div id="cur2"></div>
 
+<!-- NAV -->
 <nav>
   <a href="#" class="nav-name">Shoonya Space</a>
   <div class="nav-links">
@@ -165,10 +171,13 @@ footer{border-top:1px solid var(--line);padding:26px 52px;display:flex;align-ite
   </div>
 </nav>
 
+<!-- HERO -->
 <section id="hero">
   <div class="hgrid"></div>
-  <div class="cm cm-tl"></div><div class="cm cm-tr"></div>
-  <div class="cm cm-bl"></div><div class="cm cm-br"></div>
+  <div class="cm cm-tl"></div>
+  <div class="cm cm-tr"></div>
+  <div class="cm cm-bl"></div>
+  <div class="cm cm-br"></div>
   <div class="hero-inner">
     <div class="eyebrow">Autonomous Defence Intelligence</div>
     <h1 class="h1">Shoonya</h1>
@@ -187,31 +196,58 @@ footer{border-top:1px solid var(--line);padding:26px 52px;display:flex;align-ite
   </div>
 </section>
 
+<!-- MARQUEE -->
 <div class="mq-wrap">
   <div class="mq">
-    <span class="mqi">Swarm Intelligence</span><span class="mqi">Tactical AI</span>
-    <span class="mqi">Sensor Fusion</span><span class="mqi">Autonomous Coordination</span>
-    <span class="mqi">Sovereign Infrastructure</span><span class="mqi">Mesh Networking</span>
-    <span class="mqi">Edge AI</span><span class="mqi">Make in India</span>
-    <span class="mqi">Swarm Intelligence</span><span class="mqi">Tactical AI</span>
-    <span class="mqi">Sensor Fusion</span><span class="mqi">Autonomous Coordination</span>
-    <span class="mqi">Sovereign Infrastructure</span><span class="mqi">Mesh Networking</span>
-    <span class="mqi">Edge AI</span><span class="mqi">Make in India</span>
+    <span class="mqi">Swarm Intelligence</span>
+    <span class="mqi">Tactical AI</span>
+    <span class="mqi">Sensor Fusion</span>
+    <span class="mqi">Autonomous Coordination</span>
+    <span class="mqi">Sovereign Infrastructure</span>
+    <span class="mqi">Mesh Networking</span>
+    <span class="mqi">Edge AI</span>
+    <span class="mqi">Make in India</span>
+    <span class="mqi">Swarm Intelligence</span>
+    <span class="mqi">Tactical AI</span>
+    <span class="mqi">Sensor Fusion</span>
+    <span class="mqi">Autonomous Coordination</span>
+    <span class="mqi">Sovereign Infrastructure</span>
+    <span class="mqi">Mesh Networking</span>
+    <span class="mqi">Edge AI</span>
+    <span class="mqi">Make in India</span>
   </div>
 </div>
 
+<!-- PLATFORM -->
 <section id="platform">
   <div class="wrap">
     <div class="sec-lbl reveal">01 — Platform</div>
     <div class="pgrid">
-      <div class="pc reveal"><span class="pn">// 01</span><div class="pt">Shoonya OS</div><p class="pd">The operational intelligence layer. Connects drones, ground sensors, radars, and cameras into a single real-time tactical picture. AI-powered threat detection, asset tracking, and mission orchestration — running entirely on sovereign Indian infrastructure.</p></div>
-      <div class="pc reveal"><span class="pn">// 02</span><div class="pt">SWARM-S</div><p class="pd">Autonomous swarm deployment system. A single operator commands a formation of drones that autonomously navigate, locate, and execute coordinated deployment on command — removing soldiers from close-range risk entirely.</p></div>
-      <div class="pc reveal"><span class="pn">// 03</span><div class="pt">MeshLink</div><p class="pd">Encrypted battlefield communication network operating on radio frequency — no WiFi, no cellular, no internet dependency. AES-256 encrypted. Self-healing mesh topology designed for GPS-denied and communication-jammed environments.</p></div>
-      <div class="pc reveal"><span class="pn">// 04</span><div class="pt">ShieldNet</div><p class="pd">AI-driven perimeter intelligence. Computer vision, thermal imaging, seismic sensors, and radar fused into a single threat awareness layer. Continuous monitoring, automatic classification, and escalation to command.</p></div>
+      <div class="pc reveal">
+        <span class="pn">// 01</span>
+        <div class="pt">Shoonya OS</div>
+        <p class="pd">The operational intelligence layer. Connects drones, ground sensors, radars, and cameras into a single real-time tactical picture. AI-powered threat detection, asset tracking, and mission orchestration — running entirely on sovereign Indian infrastructure.</p>
+      </div>
+      <div class="pc reveal">
+        <span class="pn">// 02</span>
+        <div class="pt">SWARM-S</div>
+        <p class="pd">Autonomous swarm deployment system. A single operator commands a formation of drones that autonomously navigate, locate, and execute coordinated deployment on command — removing soldiers from close-range risk entirely.</p>
+      </div>
+      <div class="pc reveal">
+        <span class="pn">// 03</span>
+        <div class="pt">MeshLink</div>
+        <p class="pd">Encrypted battlefield communication network operating on radio frequency — no WiFi, no cellular, no internet dependency. AES-256 encrypted. Self-healing mesh topology designed for GPS-denied and communication-jammed environments.</p>
+      </div>
+      <div class="pc reveal">
+        <span class="pn">// 04</span>
+        <div class="pt">ShieldNet</div>
+        <p class="pd">AI-driven perimeter intelligence. Computer vision, thermal imaging, seismic sensors, and radar fused into a single threat awareness layer. Continuous monitoring, automatic classification, and escalation to command.</p>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- WHO WE SERVE -->
 <section id="serve">
   <div class="wrap">
     <div class="sec-lbl reveal">02 — Who We Serve</div>
@@ -234,17 +270,28 @@ footer{border-top:1px solid var(--line);padding:26px 52px;display:flex;align-ite
   </div>
 </section>
 
+<!-- WHY NOW -->
 <section id="why">
   <div class="wrap">
     <div class="sec-lbl reveal">03 — Why Now</div>
     <div class="wgrid">
-      <div class="wc reveal"><div class="wt">Sovereign by Design</div><p class="wd">India's defence operations cannot run on foreign AI platforms or external cloud infrastructure. Shoonya is built entirely on Indian infrastructure — local models, private compute, zero data leaving sovereign boundaries.</p></div>
-      <div class="wc reveal"><div class="wt">AI-Native</div><p class="wd">Not hardware bolted onto legacy software. Shoonya is built AI-first — the intelligence layer is the product. Every sensor, drone, and operator feeds into a single AI that maintains the complete operational picture in real time.</p></div>
-      <div class="wc reveal"><div class="wt">Made in India</div><p class="wd">Designed, built, and deployed from Gurugram. Aligned with Atmanirbhar Bharat and the iDEX defence innovation framework. Indigenous technology built to scale across India's entire defence ecosystem.</p></div>
+      <div class="wc reveal">
+        <div class="wt">Sovereign by Design</div>
+        <p class="wd">India's defence operations cannot run on foreign AI platforms or external cloud infrastructure. Shoonya is built entirely on Indian infrastructure — local models, private compute, zero data leaving sovereign boundaries.</p>
+      </div>
+      <div class="wc reveal">
+        <div class="wt">AI-Native</div>
+        <p class="wd">Not hardware bolted onto legacy software. Shoonya is built AI-first — the intelligence layer is the product. Every sensor, drone, and operator feeds into a single AI that maintains the complete operational picture in real time.</p>
+      </div>
+      <div class="wc reveal">
+        <div class="wt">Made in India</div>
+        <p class="wd">Designed, built, and deployed from Gurugram. Aligned with Atmanirbhar Bharat and the iDEX defence innovation framework. Indigenous technology built to scale across India's entire defence ecosystem.</p>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
   <div class="wrap">
     <div class="sec-lbl reveal">04 — Contact</div>
@@ -253,19 +300,42 @@ footer{border-top:1px solid var(--line);padding:26px 52px;display:flex;align-ite
         <h2 class="ch">Request a<br>Briefing.</h2>
         <p class="cbody">Available for briefings with defence officers, iDEX evaluators, and strategic partners. All enquiries are treated as confidential.</p>
         <div class="cinfo">
-          <a href="mailto:contact@shoonyaspace.in" class="cr"><span class="crk">Email</span><span class="crv">contact@shoonyaspace.in</span></a>
-          <div class="cr"><span class="crk">Location</span><span class="crv">Gurugram, Delhi NCR</span></div>
-          <div class="cr"><span class="crk">Programme</span><span class="crv">iDEX DISC 12 · ADITI</span></div>
-          <div class="cr"><span class="crk">Website</span><span class="crv">shoonyaspace.in</span></div>
+          <a href="mailto:contact@shoonyaspace.in" class="cr">
+            <span class="crk">Email</span>
+            <span class="crv">contact@shoonyaspace.in</span>
+          </a>
+          <div class="cr">
+            <span class="crk">Location</span>
+            <span class="crv">Gurugram, Delhi NCR</span>
+          </div>
+          <div class="cr">
+            <span class="crk">Programme</span>
+            <span class="crv">iDEX DISC 12 · ADITI</span>
+          </div>
+          <div class="cr">
+            <span class="crk">Website</span>
+            <span class="crv">shoonyaspace.in</span>
+          </div>
         </div>
       </div>
       <div class="reveal">
-        <form class="form" action="https://formspree.io/f/mdajevwy" method="POST">
+        <form class="form" id="briefing-form">
+          <input type="hidden" name="_subject" value="New Briefing Request — Shoonya Space">
           <input type="hidden" name="_next" value="https://shoonyaspace.in">
-          <div class="fr"><label class="fl">Name</label><input class="fi" type="text" name="name" placeholder="Full name" required></div>
-          <div class="fr"><label class="fl">Org</label><input class="fi" type="text" name="organisation" placeholder="Organisation" required></div>
-          <div class="fr"><label class="fl">Email</label><input class="fi" type="email" name="email" placeholder="official@email.in" required></div>
-          <div class="fr"><label class="fl">Purpose</label>
+          <div class="fr">
+            <label class="fl">Name</label>
+            <input class="fi" type="text" name="name" placeholder="Full name" required>
+          </div>
+          <div class="fr">
+            <label class="fl">Org</label>
+            <input class="fi" type="text" name="organisation" placeholder="Organisation" required>
+          </div>
+          <div class="fr">
+            <label class="fl">Email</label>
+            <input class="fi" type="email" name="email" placeholder="official@email.in" required>
+          </div>
+          <div class="fr">
+            <label class="fl">Purpose</label>
             <select class="fsel" name="purpose">
               <option value="">Select purpose</option>
               <option>Defence Partnership</option>
@@ -273,16 +343,24 @@ footer{border-top:1px solid var(--line);padding:26px 52px;display:flex;align-ite
               <option>iDEX / ADITI Evaluation</option>
               <option>Technical Briefing</option>
               <option>Media Enquiry</option>
+              <option>Other</option>
             </select>
           </div>
-          <div class="fr"><label class="fl">Message</label><textarea class="fta" name="message" placeholder="Brief description of your enquiry"></textarea></div>
+          <div class="fr">
+            <label class="fl">Message</label>
+            <textarea class="fta" name="message" placeholder="Brief description of your enquiry"></textarea>
+          </div>
           <button type="submit" class="fsub">Submit Request</button>
         </form>
+        <div class="f-success" id="f-success">
+          ◆ &nbsp; Request received — we will respond within 48 hours
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="ftn">Shoonya Space</div>
   <div class="ftcopy">© 2025 Shoonya Space · All Rights Reserved</div>
@@ -294,6 +372,7 @@ footer{border-top:1px solid var(--line);padding:26px 52px;display:flex;align-ite
 </footer>
 
 <script>
+// cursor
 const c1=document.getElementById('cur'),c2=document.getElementById('cur2');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;c1.style.left=mx+'px';c1.style.top=my+'px'});
@@ -302,10 +381,49 @@ document.querySelectorAll('a,button,.pc,.wc,.si,.cr').forEach(el=>{
   el.addEventListener('mouseenter',()=>{c2.style.width='48px';c2.style.height='48px'});
   el.addEventListener('mouseleave',()=>{c2.style.width='30px';c2.style.height='30px'});
 });
-function utc(){const n=new Date();const t=[n.getUTCHours(),n.getUTCMinutes(),n.getUTCSeconds()].map(v=>String(v).padStart(2,'0')).join(':');const el=document.getElementById('utc');if(el)el.innerHTML='<span>UTC</span> '+t;}
+
+// UTC clock
+function utc(){
+  const n=new Date();
+  const t=[n.getUTCHours(),n.getUTCMinutes(),n.getUTCSeconds()].map(v=>String(v).padStart(2,'0')).join(':');
+  const el=document.getElementById('utc');
+  if(el)el.innerHTML='<span>UTC</span> '+t;
+}
 setInterval(utc,1000);utc();
-const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('on'),i*70)});},{threshold:.1});
+
+// scroll reveal
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting)setTimeout(()=>e.target.classList.add('on'),i*70);
+  });
+},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// form — submit via fetch so page never leaves shoonyaspace.in
+const form=document.getElementById('briefing-form');
+form.addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=form.querySelector('.fsub');
+  btn.textContent='Sending...';
+  btn.disabled=true;
+  try{
+    const res=await fetch('https://formspree.io/f/mdajevwy',{
+      method:'POST',
+      body:new FormData(form),
+      headers:{Accept:'application/json'}
+    });
+    if(res.ok){
+      form.style.display='none';
+      document.getElementById('f-success').style.display='block';
+    } else {
+      btn.textContent='Error — please email us directly';
+      btn.disabled=false;
+    }
+  } catch(err){
+    btn.textContent='Error — please email us directly';
+    btn.disabled=false;
+  }
+});
 </script>
 </body>
 </html>
