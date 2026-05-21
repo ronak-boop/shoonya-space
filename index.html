@@ -6,45 +6,55 @@
 <title>Shoonya Space — Autonomous Defence Intelligence</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#080808;--w:#f0f0f0;--d1:rgba(240,240,240,.55);--d2:rgba(240,240,240,.25);--line:rgba(240,240,240,.06);--FM:'JetBrains Mono',monospace;--FD:'Bebas Neue',sans-serif;--FB:'Barlow Condensed',sans-serif}
+:root{
+  --bg:#080808;--w:#f0f0f0;
+  --d1:rgba(240,240,240,.55);--d2:rgba(240,240,240,.25);
+  --line:rgba(240,240,240,.06);
+  --FM:'JetBrains Mono',monospace;
+  --FD:'Bebas Neue',sans-serif;
+  --FB:'Barlow Condensed',sans-serif;
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;overflow-x:hidden}
 body{background:var(--bg);color:var(--w);font-family:var(--FB);overflow-x:hidden;cursor:none}
 #cur{position:fixed;width:5px;height:5px;background:var(--w);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference}
 #cur2{position:fixed;width:30px;height:30px;border:1px solid rgba(240,240,240,.2);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .18s cubic-bezier(.16,1,.3,1)}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.028;pointer-events:none;z-index:0}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(8,8,8,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.nav-name{font-family:var(--FB);font-size:15px;font-weight:500;letter-spacing:3px;color:var(--w);text-transform:uppercase}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 52px;background:rgba(8,8,8,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav-name{font-family:var(--FB);font-size:15px;font-weight:500;letter-spacing:4px;color:var(--w);text-transform:uppercase;text-decoration:none}
 .nav-links{display:flex;align-items:center;gap:36px}
-.nav-link{font-family:var(--FM);font-size:9px;letter-spacing:2px;color:rgba(240,240,240,.25);text-decoration:none;text-transform:uppercase;transition:color .2s}
+.nav-link{font-family:var(--FM);font-size:9px;letter-spacing:2px;color:var(--d2);text-decoration:none;text-transform:uppercase;transition:color .2s}
 .nav-link:hover{color:var(--w)}
-.nav-tag{display:flex;align-items:center;gap:7px;font-family:var(--FM);font-size:9px;letter-spacing:1.5px;color:rgba(240,240,240,.25);text-transform:uppercase}
+.nav-tag{display:flex;align-items:center;gap:7px;font-family:var(--FM);font-size:9px;letter-spacing:1.5px;color:var(--d2);text-transform:uppercase}
 .blink{width:4px;height:4px;border-radius:50%;background:var(--w);opacity:.3;animation:blink 2.5s infinite}
 @keyframes blink{0%,100%{opacity:.15}50%{opacity:.8}}
-.wrap{max-width:1120px;margin:0 auto;padding:0 48px}
+
+/* SHARED */
+.wrap{max-width:1120px;margin:0 auto;padding:0 52px}
 section{position:relative;z-index:2}
-.sec-lbl{font-family:var(--FM);font-size:9px;letter-spacing:3px;color:rgba(240,240,240,.25);text-transform:uppercase;display:flex;align-items:center;gap:14px;margin-bottom:56px}
+.sec-lbl{font-family:var(--FM);font-size:9px;letter-spacing:3px;color:var(--d2);text-transform:uppercase;display:flex;align-items:center;gap:14px;margin-bottom:56px}
 .sec-lbl::after{content:'';flex:1;height:1px;background:var(--line)}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .75s ease,transform .75s ease}
 .reveal.on{opacity:1;transform:none}
-#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 48px 88px;position:relative;overflow:hidden}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 52px 88px;position:relative;overflow:hidden}
 .hgrid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
 .hgrid::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 50%,transparent 40%,var(--bg) 100%)}
 .hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;max-width:780px}
-.hero-logo{margin-bottom:40px;animation:logo-rise 1.4s cubic-bezier(.16,1,.3,1) both}
-@keyframes logo-rise{from{opacity:0;transform:scale(.85) translateY(18px)}to{opacity:1;transform:scale(1) translateY(0)}}
-.eyebrow{font-family:var(--FM);font-size:9px;letter-spacing:4px;color:rgba(240,240,240,.25);text-transform:uppercase;margin-bottom:18px;animation:fup .7s .45s both}
-.h1{font-family:var(--FD);font-size:clamp(72px,12vw,148px);letter-spacing:4px;line-height:.92;color:var(--w);animation:fup .7s .55s both;margin-bottom:4px}
-.h1g{display:block;color:transparent;-webkit-text-stroke:1px rgba(240,240,240,.15);font-family:var(--FD);font-size:clamp(72px,12vw,148px);letter-spacing:4px;line-height:.92;animation:fup .7s .6s both;margin-bottom:44px}
-.hdesc{font-family:var(--FB);font-size:clamp(16px,2vw,20px);font-weight:300;letter-spacing:.8px;color:var(--d1);line-height:1.65;max-width:500px;margin-bottom:52px;animation:fup .7s .72s both}
-.hbtns{display:flex;align-items:center;gap:16px;animation:fup .7s .84s both}
-.btn{font-family:var(--FM);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;padding:12px 26px;border:1px solid rgba(240,240,240,.18);color:rgba(240,240,240,.25);transition:all .2s}
+.eyebrow{font-family:var(--FM);font-size:9px;letter-spacing:4px;color:var(--d2);text-transform:uppercase;margin-bottom:20px;animation:fup .7s .3s both}
+.h1{font-family:var(--FD);font-size:clamp(72px,12vw,148px);letter-spacing:4px;line-height:.92;color:var(--w);animation:fup .7s .42s both;margin-bottom:4px}
+.h1g{display:block;color:transparent;-webkit-text-stroke:1px rgba(240,240,240,.15);font-family:var(--FD);font-size:clamp(72px,12vw,148px);letter-spacing:4px;line-height:.92;animation:fup .7s .5s both;margin-bottom:48px}
+.hdesc{font-family:var(--FB);font-size:clamp(16px,2vw,20px);font-weight:300;letter-spacing:.8px;color:var(--d1);line-height:1.65;max-width:500px;margin-bottom:52px;animation:fup .7s .62s both}
+.hbtns{display:flex;align-items:center;gap:16px;animation:fup .7s .74s both}
+.btn{font-family:var(--FM);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;padding:12px 26px;border:1px solid rgba(240,240,240,.18);color:var(--d2);transition:all .2s}
 .btn:hover{border-color:rgba(240,240,240,.5);color:var(--w)}
 .btn.f{background:var(--w);color:var(--bg);border-color:var(--w)}
 .btn.f:hover{background:#d8d8d8}
-.hstrip{position:absolute;bottom:0;left:0;right:0;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:13px 48px;z-index:2;animation:fup .7s 1s both}
-.hs{font-family:var(--FM);font-size:8.5px;letter-spacing:1.5px;color:rgba(240,240,240,.25);text-transform:uppercase;display:flex;align-items:center;gap:7px}
+.hstrip{position:absolute;bottom:0;left:0;right:0;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:13px 52px;z-index:2;animation:fup .7s .9s both}
+.hs{font-family:var(--FM);font-size:8.5px;letter-spacing:1.5px;color:var(--d2);text-transform:uppercase;display:flex;align-items:center;gap:7px}
 .hs span{color:rgba(240,240,240,.4)}
 .cm{position:absolute;width:14px;height:14px;opacity:.14}
 .cm-tl{top:20px;left:20px;border-top:1px solid var(--w);border-left:1px solid var(--w)}
@@ -52,11 +62,15 @@ section{position:relative;z-index:2}
 .cm-bl{bottom:52px;left:20px;border-bottom:1px solid var(--w);border-left:1px solid var(--w)}
 .cm-br{bottom:52px;right:20px;border-bottom:1px solid var(--w);border-right:1px solid var(--w)}
 @keyframes fup{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* MARQUEE */
 .mq-wrap{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;overflow:hidden;position:relative;z-index:2}
 .mq{display:flex;white-space:nowrap;animation:mq 32s linear infinite}
-.mqi{font-family:var(--FM);font-size:9px;letter-spacing:3px;color:rgba(240,240,240,.25);text-transform:uppercase;padding:0 40px}
+.mqi{font-family:var(--FM);font-size:9px;letter-spacing:3px;color:var(--d2);text-transform:uppercase;padding:0 40px}
 .mqi::after{content:'/';margin-left:40px;opacity:.2}
 @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* PLATFORM */
 #platform{padding:120px 0;border-bottom:1px solid var(--line)}
 .pgrid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}
 .pc{padding:48px 44px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;overflow:hidden;transition:background .25s}
@@ -65,40 +79,46 @@ section{position:relative;z-index:2}
 .pc:hover{background:rgba(240,240,240,.02)}
 .pc::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--w),transparent);opacity:0;transition:opacity .35s}
 .pc:hover::after{opacity:1}
-.pn{font-family:var(--FM);font-size:9px;letter-spacing:2px;color:rgba(240,240,240,.25);display:block;margin-bottom:24px}
+.pn{font-family:var(--FM);font-size:9px;letter-spacing:2px;color:var(--d2);display:block;margin-bottom:24px}
 .pt{font-family:var(--FD);font-size:36px;color:var(--w);letter-spacing:1px;margin-bottom:14px}
-.pd{font-family:var(--FB);font-size:15px;font-weight:300;color:rgba(240,240,240,.25);line-height:1.72;letter-spacing:.3px}
+.pd{font-family:var(--FB);font-size:15px;font-weight:300;color:var(--d2);line-height:1.72;letter-spacing:.3px}
+
+/* WHO WE SERVE */
 #serve{padding:120px 0;border-bottom:1px solid var(--line)}
 .slayout{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:start}
-.sh{font-family:var(--FD);font-size:clamp(52px,7vw,94px);line-height:.94;letter-spacing:-1px;color:var(--w)}
+.sh{font-family:var(--FD);font-size:clamp(52px,7vw,94px);line-height:.94;letter-spacing:-1px;color:var(--w);margin-bottom:40px}
 .sh em{display:block;font-style:normal;color:transparent;-webkit-text-stroke:1px rgba(240,240,240,.2)}
-.sbody{font-family:var(--FB);font-size:17px;font-weight:300;color:rgba(240,240,240,.25);line-height:1.75;margin-bottom:40px}
+.sbody{font-family:var(--FB);font-size:17px;font-weight:300;color:var(--d2);line-height:1.75;margin-bottom:40px}
 .slist{border:1px solid var(--line)}
 .si{padding:16px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:16px;transition:background .18s}
 .si:last-child{border-bottom:none}
 .si:hover{background:rgba(240,240,240,.025)}
-.sin{font-family:var(--FM);font-size:8px;letter-spacing:1px;color:rgba(240,240,240,.25);min-width:26px}
+.sin{font-family:var(--FM);font-size:8px;letter-spacing:1px;color:var(--d2);min-width:26px}
 .sit{font-family:var(--FB);font-size:15px;font-weight:400;letter-spacing:.8px;color:rgba(240,240,240,.55)}
+
+/* WHY */
 #why{padding:120px 0;border-bottom:1px solid var(--line)}
 .wgrid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);gap:0;background:var(--line)}
 .wc{background:var(--bg);padding:44px 36px;transition:background .2s}
 .wc:hover{background:rgba(240,240,240,.02)}
 .wt{font-family:var(--FD);font-size:28px;color:var(--w);letter-spacing:1px;margin-bottom:14px}
-.wd{font-family:var(--FB);font-size:14px;font-weight:300;color:rgba(240,240,240,.25);line-height:1.72}
+.wd{font-family:var(--FB);font-size:14px;font-weight:300;color:var(--d2);line-height:1.72}
+
+/* CONTACT */
 #contact{padding:120px 0}
 .clayout{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:start}
 .ch{font-family:var(--FD);font-size:clamp(52px,7vw,90px);line-height:.94;letter-spacing:-1px;color:var(--w);margin-bottom:24px}
-.cbody{font-family:var(--FB);font-size:16px;font-weight:300;color:rgba(240,240,240,.25);line-height:1.72;margin-bottom:40px}
+.cbody{font-family:var(--FB);font-size:16px;font-weight:300;color:var(--d2);line-height:1.72;margin-bottom:40px}
 .cinfo{border:1px solid var(--line)}
 .cr{padding:16px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;text-decoration:none;transition:background .18s}
 .cr:last-child{border-bottom:none}
 .cr:hover{background:rgba(240,240,240,.025)}
-.crk{font-family:var(--FM);font-size:8px;letter-spacing:2px;color:rgba(240,240,240,.25);text-transform:uppercase}
+.crk{font-family:var(--FM);font-size:8px;letter-spacing:2px;color:var(--d2);text-transform:uppercase}
 .crv{font-family:var(--FB);font-size:14px;font-weight:300;color:rgba(240,240,240,.45)}
 .form{border:1px solid var(--line)}
 .fr{display:flex;border-bottom:1px solid var(--line)}
 .fr:last-child{border-bottom:none}
-.fl{font-family:var(--FM);font-size:8px;letter-spacing:2px;color:rgba(240,240,240,.25);text-transform:uppercase;padding:15px 14px;border-right:1px solid var(--line);min-width:90px;display:flex;align-items:center;background:rgba(240,240,240,.015)}
+.fl{font-family:var(--FM);font-size:8px;letter-spacing:2px;color:var(--d2);text-transform:uppercase;padding:15px 14px;border-right:1px solid var(--line);min-width:90px;display:flex;align-items:center;background:rgba(240,240,240,.015)}
 .fi,.fta,.fsel{flex:1;background:transparent;border:none;font-family:var(--FB);font-size:14px;font-weight:300;color:var(--w);padding:15px 14px;outline:none;letter-spacing:.3px}
 .fi::placeholder,.fta::placeholder{color:rgba(240,240,240,.12)}
 .fta{min-height:90px;resize:none}
@@ -106,14 +126,15 @@ section{position:relative;z-index:2}
 .fsel option{background:#111}
 .fsub{width:100%;background:var(--w);border:none;font-family:var(--FM);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--bg);padding:16px;cursor:pointer;transition:background .15s}
 .fsub:hover{background:#d4d4d4}
-.fdone{display:none;font-family:var(--FM);font-size:9px;letter-spacing:2px;color:rgba(240,240,240,.25);text-align:center;padding:14px}
-footer{border-top:1px solid var(--line);padding:26px 48px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2}
-.ftbrand{display:flex;align-items:center;gap:10px}
-.ftn{font-family:var(--FB);font-size:13px;font-weight:500;letter-spacing:3px;color:rgba(240,240,240,.25);text-transform:uppercase}
-.ftcopy{font-family:var(--FM);font-size:8px;letter-spacing:1.5px;color:rgba(240,240,240,.25);text-transform:uppercase}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:26px 52px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2}
+.ftn{font-family:var(--FB);font-size:13px;font-weight:500;letter-spacing:4px;color:rgba(240,240,240,.25);text-transform:uppercase}
+.ftcopy{font-family:var(--FM);font-size:8px;letter-spacing:1.5px;color:var(--d2);text-transform:uppercase}
 .ftlinks{display:flex;gap:22px}
-.ftlinks a{font-family:var(--FM);font-size:8px;letter-spacing:1.5px;color:rgba(240,240,240,.25);text-decoration:none;text-transform:uppercase;transition:color .15s}
+.ftlinks a{font-family:var(--FM);font-size:8px;letter-spacing:1.5px;color:var(--d2);text-decoration:none;text-transform:uppercase;transition:color .15s}
 .ftlinks a:hover{color:var(--w)}
+
 @media(max-width:900px){
   nav{padding:0 24px}.nav-links{display:none}
   .wrap{padding:0 24px}
@@ -133,44 +154,8 @@ footer{border-top:1px solid var(--line);padding:26px 48px;display:flex;align-ite
 <div id="cur"></div>
 <div id="cur2"></div>
 
-<!-- SVG logo symbol — the orbital ring from actual Shoonya logo -->
-<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <symbol id="logo" viewBox="0 0 100 100">
-      <defs>
-        <radialGradient id="lg1" cx="35%" cy="28%" r="75%">
-          <stop offset="0%" stop-color="#ffffff"/>
-          <stop offset="55%" stop-color="#bbbbbb"/>
-          <stop offset="100%" stop-color="#555555"/>
-        </radialGradient>
-        <radialGradient id="lg2" cx="65%" cy="70%" r="65%">
-          <stop offset="0%" stop-color="#888888"/>
-          <stop offset="100%" stop-color="#222222"/>
-        </radialGradient>
-      </defs>
-      <!-- Main thick arc — left/bottom bright side -->
-      <path d="M50 7 C23 7,9 25,9 50 C9 75,24 93,50 93 C63 93,72 88,78 81"
-        fill="none" stroke="url(#lg1)" stroke-width="14" stroke-linecap="round"/>
-      <!-- Right arc — darker shadow side -->
-      <path d="M78 81 C85 74,91 63,91 50 C91 35,84 19,70 12 C63 8,56 7,50 7"
-        fill="none" stroke="url(#lg2)" stroke-width="10" stroke-linecap="round"/>
-      <!-- Inner highlight for depth -->
-      <path d="M50 20 C31 20,20 33,20 50 C20 65,29 78,46 82"
-        fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="3" stroke-linecap="round"/>
-      <!-- The gap/slash cut at top right (signature of the logo) -->
-      <path d="M66 12 L56 5" fill="none" stroke="#080808" stroke-width="9" stroke-linecap="round"/>
-      <!-- Shadow on inner right -->
-      <path d="M64 81 C73 73,81 61,83 49"
-        fill="none" stroke="rgba(0,0,0,0.45)" stroke-width="4" stroke-linecap="round"/>
-    </symbol>
-  </defs>
-</svg>
-
 <nav>
-  <a href="#" class="nav-brand">
-    <svg width="26" height="26" viewBox="0 0 100 100"><use href="#logo"/></svg>
-    <div class="nav-name">Shoonya Space</div>
-  </a>
+  <a href="#" class="nav-name">Shoonya Space</a>
   <div class="nav-links">
     <a href="#platform" class="nav-link">Platform</a>
     <a href="#serve"    class="nav-link">Who We Serve</a>
@@ -185,9 +170,6 @@ footer{border-top:1px solid var(--line);padding:26px 48px;display:flex;align-ite
   <div class="cm cm-tl"></div><div class="cm cm-tr"></div>
   <div class="cm cm-bl"></div><div class="cm cm-br"></div>
   <div class="hero-inner">
-    <div class="hero-logo">
-      <svg width="92" height="92" viewBox="0 0 100 100"><use href="#logo"/></svg>
-    </div>
     <div class="eyebrow">Autonomous Defence Intelligence</div>
     <h1 class="h1">Shoonya</h1>
     <span class="h1g">Space</span>
@@ -271,7 +253,7 @@ footer{border-top:1px solid var(--line);padding:26px 48px;display:flex;align-ite
         <h2 class="ch">Request a<br>Briefing.</h2>
         <p class="cbody">Available for briefings with defence officers, iDEX evaluators, and strategic partners. All enquiries are treated as confidential.</p>
         <div class="cinfo">
-          <a href="mailto:contact@shoonya.space" class="cr"><span class="crk">Email</span><span class="crv">contact@shoonya.space</span></a>
+          <a href="mailto:contact@shoonyaspace.in" class="cr"><span class="crk">Email</span><span class="crv">contact@shoonyaspace.in</span></a>
           <div class="cr"><span class="crk">Location</span><span class="crv">Gurugram, Delhi NCR</span></div>
           <div class="cr"><span class="crk">Programme</span><span class="crv">iDEX DISC 12 · ADITI</span></div>
           <div class="cr"><span class="crk">Website</span><span class="crv">shoonyaspace.in</span></div>
@@ -279,29 +261,33 @@ footer{border-top:1px solid var(--line);padding:26px 48px;display:flex;align-ite
       </div>
       <div class="reveal">
         <form class="form" action="https://formspree.io/f/mdajevwy" method="POST">
-          <div class="fr"><label class="fl">Name</label><input class="fi" type="text" placeholder="Full name" required></div>
-          <div class="fr"><label class="fl">Org</label><input class="fi" type="text" placeholder="Organisation" required></div>
-          <div class="fr"><label class="fl">Email</label><input class="fi" type="email" placeholder="official@email.in" required></div>
+          <input type="hidden" name="_subject" value="New Briefing Request — Shoonya Space">
+          <div class="fr"><label class="fl">Name</label><input class="fi" type="text" name="name" placeholder="Full name" required></div>
+          <div class="fr"><label class="fl">Org</label><input class="fi" type="text" name="organisation" placeholder="Organisation" required></div>
+          <div class="fr"><label class="fl">Email</label><input class="fi" type="email" name="email" placeholder="official@email.in" required></div>
           <div class="fr"><label class="fl">Purpose</label>
-            <select class="fsel"><option value="">Select purpose</option><option>Defence Partnership</option><option>Investment / Funding</option><option>iDEX / ADITI Evaluation</option><option>Technical Briefing</option><option>Media Enquiry</option></select>
+            <select class="fsel" name="purpose">
+              <option value="">Select purpose</option>
+              <option>Defence Partnership</option>
+              <option>Investment / Funding</option>
+              <option>iDEX / ADITI Evaluation</option>
+              <option>Technical Briefing</option>
+              <option>Media Enquiry</option>
+            </select>
           </div>
-          <div class="fr"><label class="fl">Message</label><textarea class="fta" placeholder="Brief description of your enquiry"></textarea></div>
-          <button type="submit" class="fsub">Submit Request</button> <input type="hidden" name="_replyto" value="contact@shoonyaspace.in"> <input type="hidden" name="_subject" value="New Briefing Request — Shoonya Space">
+          <div class="fr"><label class="fl">Message</label><textarea class="fta" name="message" placeholder="Brief description of your enquiry"></textarea></div>
+          <button type="submit" class="fsub">Submit Request</button>
         </form>
-        <div class="fdone" id="fdone">◆ &nbsp; Request received — we will respond within 48 hours</div>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="ftbrand">
-    <svg width="20" height="20" viewBox="0 0 100 100" style="opacity:.35"><use href="#logo"/></svg>
-    <div class="ftn">Shoonya Space</div>
-  </div>
+  <div class="ftn">Shoonya Space</div>
   <div class="ftcopy">© 2025 Shoonya Space · All Rights Reserved</div>
   <div class="ftlinks">
-    <a href="mailto:contact@shoonya.space">Contact</a>
+    <a href="mailto:contact@shoonyaspace.in">Contact</a>
     <a href="#">Privacy</a>
     <a href="#">iDEX</a>
   </div>
@@ -320,7 +306,6 @@ function utc(){const n=new Date();const t=[n.getUTCHours(),n.getUTCMinutes(),n.g
 setInterval(utc,1000);utc();
 const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('on'),i*70)});},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-function subForm(e){e.preventDefault();e.target.style.display='none';document.getElementById('fdone').style.display='block';}
 </script>
 </body>
 </html>
